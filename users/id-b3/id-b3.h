@@ -56,11 +56,11 @@ enum userspace_layers {
 #define SNAPR LGUI(LSFT(KC_RGHT))
 
 #define _____________________COLEMAK_L1_____________________ KC_ESC,        KC_Q, KC_W, KC_F, KC_P, KC_G
-#define _____________________COLEMAK_L2_____________________ KC_DEL,        KC_A, KC_R, KC_S, KC_T, KC_D
+#define _____________________COLEMAK_L2_____________________ KC_DEL,  ALT_T(KC_A), KC_R, KC_S, KC_T, KC_D
 #define _____________________COLEMAK_L3_____________________ KC_LALT, CTL_T(KC_Z), KC_X, KC_C, KC_V, KC_B
 
 #define _____________________COLEMAK_R1_____________________ KC_J, KC_L, KC_U   , KC_Y  , KC_SCLN        , KC_NONUS_BSLASH
-#define _____________________COLEMAK_R2_____________________ KC_H, KC_N, KC_E   , KC_I  , KC_O           , CMD_T(KC_QUOTE)
+#define _____________________COLEMAK_R2_____________________ KC_H, KC_N, KC_E   , KC_I  , ALT_T(KC_O)           , CMD_T(KC_QUOTE)
 #define _____________________COLEMAK_R3_____________________ KC_K, KC_M, KC_COMM, KC_DOT, CTL_T(KC_SLASH), OSL(_SHORTCUT)
 
 #define _____________________THUMBS_LF1_____________________ TO(_GAMING), KC_LEFT, MT(MOD_LSFT, KC_SPC), LT(_SYMNUM, KC_ENT), KC_UP
