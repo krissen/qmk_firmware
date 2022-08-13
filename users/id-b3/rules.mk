@@ -3,7 +3,7 @@ WPM_ENABLE = yes # Enable words per minute counting
 SRC += id-b3.c
 SRC += process_records.c
 
-ifeq ($(strip $(OLED_DRIVER_ENABLE)), yes)
+ifeq ($(strip $(OLED_ENABLE)), yes)
     SRC += oled_stuff.c
 endif
 

@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifdef OLED_DRIVER_ENABLE
+#ifdef OLED_ENABLE
 
 #ifdef WPM_ENABLE
 	#include "wpm_oled.c"
@@ -25,10 +25,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 extern uint8_t is_master;
-
-// STATUS BEGIN
-//
-//
 
 void render_mod_status(uint8_t modifiers) {
     oled_write_P(PSTR(OLED_RENDER_MODS_NAME), false);
@@ -45,7 +41,6 @@ static void render_status(void) {
     oled_write_P(logo, false);
 	oled_advance_page(true);
 	oled_advance_page(true);
-    //oled_write_P(PSTR("         Coolio\n\n"), false);
 
     // Host Keyboard Layer Status
     oled_write_P(PSTR(OLED_RENDER_LAYOUT_NAME), false);
@@ -89,43 +84,13 @@ static void render_status(void) {
     oled_write_P(led_state.scroll_lock ? PSTR("SCR ") : PSTR("    "), false);
 	oled_advance_page(true);
 	render_mod_status(get_mods() | get_oneshot_mods());
-	//render_keylogger_status();
 }
 
-//
-//
-// STATUS END
 
-// DICE ROLLER BEGIN
-//
-//
-/*
-#ifdef DICE_ROLLER_ENABLE
-char* roll_dice(int num){
-	// roll d20
-	static char roll_str[14];
-	uint8_t roll20 = (rand() % num) + 1;
-	sprintf(roll_str, "Roll d%d: %d", num, roll20);
-	return roll_str;
-}
-
-void oled_dice(int num){
-	if(!is_keyboard_master()){
-		oled_set_cursor(0,4);
-		oled_write("-=: ", false);
-		oled_write(roll_dice(num), false);
-		oled_write(" :=-", false);
-	}
-}
-#endif
-*/
-//
-//
-// DICE ROLLER END
-
-void oled_task_user(void) {
+bool oled_task_user(void) {
     if (is_keyboard_master()) {
 		render_status();
+        return false;
     } else {
 		
 		#ifdef WPM_ENABLE
@@ -137,6 +102,7 @@ void oled_task_user(void) {
 		#endif
         //render_custom_image();
 		//oled_scroll_left();
+        return false;
     }
 }
 #endif

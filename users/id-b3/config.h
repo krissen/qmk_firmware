@@ -14,7 +14,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#ifdef OLED_DRIVER_ENABLE
+#ifdef OLED_ENABLE
 #    define OLED_DISPLAY_128X64
 #    define OLED_FONT_H "coolio_font.h"
 #    define OLED_TIMEOUT 60000

@@ -37,11 +37,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENCODERS_PAD_B { F4 }
 #define ENCODERS_PAD_A_RIGHT { F5 }
 #define ENCODERS_PAD_B_RIGHT { F4 }
-//#define ENCODER_DIRECTION_FLIP
 #define ENCODER_RESOLUTION 4
 
 /* COL2ROW, ROW2COL*/
-#define DIODE_DIRECTION ROW2COL
+#define DIODE_DIRECTION COL2ROW
 
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
 //#define MATRIX_HAS_GHOST
