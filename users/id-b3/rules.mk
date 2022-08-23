@@ -1,4 +1,4 @@
-WPM_ENABLE = yes # Enable words per minute counting
+WPM_ENABLE = no # Enable words per minute counting
 
 SRC += id-b3.c
 SRC += process_records.c
