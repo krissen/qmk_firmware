@@ -41,7 +41,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO, __________COLEMAK_L2__________,          __________COLEMAK_R2__________, KC_NO,
         KC_NO, __________COLEMAK_L3__________,          __________COLEMAK_R3__________, KC_NO,
            KC_NO, KC_NO, _____THUMBS_LF1_____,          _____THUMBS_RG1_____, KC_NO, KC_NO,
-                                 KC_NO, KC_NO,          KC_NO, KC_NO
+                                KC_NO, KC_NO,            KC_NO, KC_NO
+    ),
+    [_SYMNUM] = LAYOUT_wrapper(
+        KC_NO, __________SYMNUM_LF1__________,          __________SYMNUM_RT1__________, KC_NO,
+        KC_NO, __________SYMNUM_LF2__________,          __________SYMNUM_RT2__________, KC_NO,
+        KC_NO, __________SYMNUM_LF3__________,          __________SYMNUM_RT3__________, KC_NO,
+           KC_NO, KC_NO, _____THUMBS_LF1_____,          _____THUMBS_RG1_____, KC_NO, KC_NO,
+                                KC_NO, KC_NO,            KC_NO, KC_NO
+    ),
+    [_SHORTCUT] = LAYOUT_wrapper(
+        KC_NO, __________SHORTCT_L1__________,          __________SHORTCT_R1__________, KC_NO,
+        KC_NO, __________SHORTCT_L2__________,          __________SHORTCT_R2__________, KC_NO,
+        KC_NO, __________SHORTCT_L3__________,          __________SHORTCT_R1__________, KC_NO,
+           KC_NO, KC_NO, _____THUMBS_LF1_____,          _____THUMBS_RG1_____, KC_NO, KC_NO,
+                                KC_NO, KC_NO,            KC_NO, KC_NO
     )
-
 };
