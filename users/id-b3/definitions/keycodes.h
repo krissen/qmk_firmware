@@ -3,15 +3,15 @@
 #include "layers.h"
 
 // Home Row Mods
-#define HR_A LALT_T(KC_A)
-#define HR_R LCTL_T(KC_R)
-#define HR_S LGUI_T(KC_S)
-#define HR_T LSFT_T(KC_T)
+#define HR_A LGUI_T(KC_A)
+#define HR_R LALT_T(KC_R)
+#define HR_S LSFT_T(KC_S)
+#define HR_T LCTL_T(KC_T)
 
-#define HR_O LALT_T(KC_O)
-#define HR_I LCTL_T(KC_I)
-#define HR_E LGUI_T(KC_E)
-#define HR_N LSFT_T(KC_N)
+#define HR_O RCTL_T(KC_O)
+#define HR_I RSFT_T(KC_I)
+#define HR_E LALT_T(KC_E)
+#define HR_N RGUI_T(KC_N)
 
 // Shortcuts
 #define CADEL LALT(LCTL(KC_DELETE))

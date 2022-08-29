@@ -13,7 +13,7 @@
 #define ________COLEMKR3________    KC_K, KC_M, KC_COMM, KC_DOT, KC_SLSH
 
 #define ____THL1____    MT(MOD_LSFT, KC_SPC), LT(_SYMNUM, KC_ENT), KC_ESC
-#define ____THR1____    KC_DEL, KC_TAB, KC_BSPC
+#define ____THR1____    KC_DEL, LT(_SHORTCUT, KC_TAB), KC_BSPC
 
 #define ________SYMNUML1________    A(KC_F4), KC_NO, KC_DQT, KC_LPRN, KC_RPRN
 #define ________SYMNUML2________    KC_NUHS, KC_EQL, KC_MINS, KC_EXLM, KC_PERC
