@@ -12,4 +12,4 @@
 #define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 220
 
-#define COMBO_COUNT 3
+#define COMBO_COUNT 6

@@ -8,10 +8,10 @@
 #define HR_S LSFT_T(KC_S)
 #define HR_T LCTL_T(KC_T)
 
-#define HR_O RCTL_T(KC_O)
-#define HR_I RSFT_T(KC_I)
-#define HR_E LALT_T(KC_E)
-#define HR_N RGUI_T(KC_N)
+#define HR_N RCTL_T(KC_N)
+#define HR_E RSFT_T(KC_E)
+#define HR_I LALT_T(KC_I)
+#define HR_O RGUI_T(KC_O)
 
 // Shortcuts
 #define CADEL LALT(LCTL(KC_DELETE))

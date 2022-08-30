@@ -15,7 +15,7 @@
 #define ____THL1____    MT(MOD_LSFT, KC_SPC), LT(_SYMNUM, KC_ENT), KC_ESC
 #define ____THR1____    KC_DEL, LT(_SHORTCUT, KC_TAB), KC_BSPC
 
-#define ________SYMNUML1________    A(KC_F4), KC_NO, KC_DQT, KC_LPRN, KC_RPRN
+#define ________SYMNUML1________    A(KC_F4), KC_DQT, KC_AT, KC_LPRN, KC_RPRN
 #define ________SYMNUML2________    KC_NUHS, KC_EQL, KC_MINS, KC_EXLM, KC_PERC
 #define ________SYMNUML3________    KC_NO, KC_NO, KC_NO, KC_LBRC, KC_RBRC
 
@@ -29,6 +29,6 @@
 #define ________SHRTCTL2________    TRML,   _______,   SNAP,CLSTAB, _______
 #define ________SHRTCTL3________    TSKMN, _______, _______, FPASTE, _______
 
-#define ________SHRTCTR1________    KC_MYCM, _______, _______, _______, _______
-#define ________SHRTCTR2________    _______, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
+#define ________SHRTCTR1________    KC_MYCM, _______, KC_UP, _______, _______
+#define ________SHRTCTR2________    _______, KC_LEFT, KC_DOWN, KC_RGHT, _______
 #define ________SHRTCTR3________    _______, _______, _______, _______, G(KC_DOT)
