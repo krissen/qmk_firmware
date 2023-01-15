@@ -13,7 +13,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #pragma once
-#include "id-b3.h"
+#include "krissen.h"
 
 #ifdef DICE_ROLLER_ENABLE
 //enumerate macros

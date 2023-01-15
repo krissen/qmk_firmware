@@ -1,6 +1,6 @@
 WPM_ENABLE = no # Enable words per minute counting
 
-SRC += id-b3.c
+SRC += krissen.c
 SRC += process_records.c
 
 ifeq ($(strip $(OLED_ENABLE)), yes)
