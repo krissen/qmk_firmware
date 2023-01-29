@@ -22,7 +22,7 @@ uint16_t alt_tab_timer = 0;
 void matrix_scan_user(void) {
 	if (is_alt_tab_active) {
 		if (timer_elapsed(alt_tab_timer) > 1250) {
-			unregister_code(KC_LGUI);
+			unregister_code(KC_LCTL);
 			is_alt_tab_active = false;
 		}
 	}
@@ -36,18 +36,18 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 				if (clockwise) {
 					if (!is_alt_tab_active) {
 						is_alt_tab_active = true;
-						register_code(KC_LGUI);
+						register_code(KC_LCTL);
 					}
 					alt_tab_timer = timer_read();
-					tap_code16(KC_GRAVE);
+					tap_code16(KC_F4);
 					return true;
 				} else {
 					if (!is_alt_tab_active) {
 						is_alt_tab_active = true;
-						register_code(KC_LGUI);
+						register_code(KC_LCTL);
 					}
 					alt_tab_timer = timer_read();
-					tap_code16(S(KC_GRAVE));
+					tap_code16(S(KC_F4));
 					return true;
 				}
 				break;
