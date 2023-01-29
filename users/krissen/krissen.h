@@ -55,8 +55,8 @@ enum userspace_layers {
 #define SNAPR LGUI(LSFT(KC_RGHT))
 
 #define _____________________QWERTY_L1______________________ KC_ESC, KC_Q, KC_W, KC_E, KC_R, KC_T
-#define _____________________QWERTY_L2______________________ KC_DEL, KC_A, KC_S, KC_D, KC_F, KC_G
-#define _____________________QWERTY_L3______________________ KC_LALT, CTL_T(KC_Z), KC_X, KC_C, KC_V, KC_B
+#define _____________________QWERTY_L2______________________ KC_DEL, LALT_T(KC_A), KC_S, KC_D, KC_F, KC_G
+#define _____________________QWERTY_L3______________________ KC_LALT,LCTL_T(KC_Z), KC_X, KC_C, KC_V, KC_B
 #define _____________________QWER_TH_L1_____________________ TO(_COLEMAK), KC_LEFT, MT(MOD_LSFT, KC_SPC), LT(_SYMNUM, KC_ENT), KC_UP
 #define _____________________QWER_TH_L2_____________________ OSM(MOD_LSFT), KC_DOWN
 
@@ -67,8 +67,8 @@ enum userspace_layers {
 #define _____________________QWER_TH_R2_____________________ OSL(_NAVIGATION), C(KC_BSPC)
 
 #define _____________________COLEMAK_L1_____________________ KC_ESC,        KC_Q,  KC_W, KC_F, KC_P, KC_B
-#define _____________________COLEMAK_L2_____________________ KC_DEL,  ALT_T(KC_A), KC_R, KC_S, KC_T, KC_G
-#define _____________________COLEMAK_L3_____________________ KC_LALT, CTL_T(KC_Z), KC_X, KC_C, KC_D, KC_V
+#define _____________________COLEMAK_L2_____________________ LGUI_T(KC_DEL),LALT_T(KC_A), KC_R, KC_S, KC_T, KC_G
+#define _____________________COLEMAK_L3_____________________ KC_LALT,       CTL_T(KC_Z), KC_X, KC_C, KC_D, KC_V
 #define _____________________COLE_TH_L1_____________________ TO(_NAVIGATION), KC_LEFT, MT(MOD_LSFT, KC_SPC), LT(_SYMNUM, KC_ENT), KC_UP
 #define _____________________COLE_TH_L2_____________________ OSM(MOD_LSFT), KC_DOWN
 
