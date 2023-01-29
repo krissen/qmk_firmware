@@ -50,14 +50,24 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 					tap_code16(S(KC_F4));
 					return true;
 				}
-				break;
+			break;
+			case _SHORTCUT:
+				// Volume Control
+				if (clockwise) {
+					tap_code(KC_VOLU);
+					return true;
+				} else {
+					tap_code(KC_VOLD);
+					return true;
+				}
+			break;
 			case _NAVIGATION:
 				// Move whole words. Hold shift to select while moving.
 				if (clockwise) {
-					tap_code16(G(KC_RGHT));
+					tap_code16(A(KC_RGHT));
 					return true;
 				} else {
-					tap_code16(G(KC_LEFT));
+					tap_code16(A(KC_LEFT));
 					return true;
 				}
 			break;
