@@ -57,26 +57,28 @@ enum userspace_layers {
 #define _____________________QWERTY_L1______________________ KC_ESC, KC_Q, KC_W, KC_E, KC_R, KC_T
 #define _____________________QWERTY_L2______________________ KC_DEL, KC_A, KC_S, KC_D, KC_F, KC_G
 #define _____________________QWERTY_L3______________________ KC_LALT, CTL_T(KC_Z), KC_X, KC_C, KC_V, KC_B
+#define _____________________QWER_TH_L1_____________________ TO(_COLEMAK), KC_LEFT, MT(MOD_LSFT, KC_SPC), LT(_SYMNUM, KC_ENT), KC_UP
+#define _____________________QWER_TH_L2_____________________ OSM(MOD_LSFT), KC_DOWN
 
-#define _____________________QWERTY_R1______________________ KC_Y, KC_U, KC_I, KC_O, KC_P, KC_NONUS_BSLASH
-#define _____________________QWERTY_R2______________________ KC_H, KC_J, KC_K, KC_L, KC_SCLN, CMD_T(KC_QUOTE)
-#define _____________________QWERTY_R3______________________ KC_N, KC_M, KC_COMM, KC_DOT, CTL_T(KC_SLASH), OSL(_SHORTCUT)
+#define _____________________QWERTY_R1______________________ KC_Y, KC_U, KC_I,    KC_O,	  KC_P,             KC_LBRC
+#define _____________________QWERTY_R2______________________ KC_H, KC_J, KC_K,    KC_L,   KC_SCLN,          RGUI_T(KC_QUOTE)
+#define _____________________QWERTY_R3______________________ KC_N, KC_M, KC_COMM, KC_DOT, RCTL_T(KC_SLASH), OSL(_SHORTCUT)
+#define _____________________QWER_TH_R1_____________________ KC_LEFT, TD(TD_TABC), KC_BSPC, KC_RIGHT, TO(_SYMNUM)
+#define _____________________QWER_TH_R2_____________________ OSL(_NAVIGATION), C(KC_BSPC)
 
 #define _____________________COLEMAK_L1_____________________ KC_ESC,        KC_Q,  KC_W, KC_F, KC_P, KC_B
 #define _____________________COLEMAK_L2_____________________ KC_DEL,  ALT_T(KC_A), KC_R, KC_S, KC_T, KC_G
 #define _____________________COLEMAK_L3_____________________ KC_LALT, CTL_T(KC_Z), KC_X, KC_C, KC_D, KC_V
+#define _____________________COLE_TH_L1_____________________ TO(_NAVIGATION), KC_LEFT, MT(MOD_LSFT, KC_SPC), LT(_SYMNUM, KC_ENT), KC_UP
+#define _____________________COLE_TH_L2_____________________ OSM(MOD_LSFT), KC_DOWN
 
-#define _____________________COLEMAK_R1_____________________ KC_J, KC_L, KC_U   , KC_Y  , KC_SCLN        , KC_LBRC
-#define _____________________COLEMAK_R2_____________________ KC_M, KC_N, KC_E   , KC_I  , ALT_T(KC_O)    , CMD_T(KC_QUOTE)
-#define _____________________COLEMAK_R3_____________________ KC_K, KC_H, KC_COMM, KC_DOT, CTL_T(KC_SLASH), OSL(_SHORTCUT)
+#define _____________________COLEMAK_R1_____________________ KC_J, KC_L, KC_U   , KC_Y  , KC_SCLN         , KC_LBRC
+#define _____________________COLEMAK_R2_____________________ KC_M, KC_N, KC_E   , KC_I  , RALT_T(KC_O)    , RGUI_T(KC_QUOTE)
+#define _____________________COLEMAK_R3_____________________ KC_K, KC_H, KC_COMM, KC_DOT, RCTL_T(KC_SLASH), OSL(_SHORTCUT)
+#define _____________________COLE_TH_R1_____________________ KC_LEFT, TD(TD_TABC), KC_BSPC, KC_RIGHT, TO(_QWERTY)
+#define _____________________COLE_TH_R2_____________________ OSL(_NAVIGATION), C(KC_BSPC)
 
-#define _____________________THUMBS_LF1_____________________ TO(_GAMING), KC_LEFT, MT(MOD_LSFT, KC_SPC), LT(_SYMNUM, KC_ENT), KC_UP
-#define _____________________THUMBS_LF2_____________________ OSM(MOD_LSFT), KC_DOWN
-
-#define _____________________THUMBS_RG1_____________________ KC_LEFT, TD(TD_TABC), KC_BSPC, KC_RIGHT, TO(_QWERTY)
-#define _____________________THUMBS_RG2_____________________ OSL(_NAVIGATION), C(KC_BSPC)
-
-#define _____________________SHORTCT_L1_____________________ CADEL,_______,C(KC_W),C(KC_F),SNAPL,SNAPR
+#define _____________________SHORTCT_L1_____________________ RESET,_______,C(KC_W),C(KC_F),SNAPL,SNAPR
 #define _____________________SHORTCT_L2_____________________ TRML, _______, _______, SNAP, CLSTAB, _______
 #define _____________________SHORTCT_L3_____________________ TSKMN, _______, _______, _______, LALT(LCTL(KC_V)),_______
 #define _____________________SHRT_TH_L1_____________________ G(KC_TAB), G(C(KC_LEFT)), G(C(KC_RIGHT)), RGB_TOG, RGB_M_P
@@ -94,7 +96,7 @@ enum userspace_layers {
 
 #define _____________________SYMNUM_RT1_____________________ TD(TD_ASDI),KC_7,KC_8,KC_9,_______,_______
 #define _____________________SYMNUM_RT2_____________________ TD(TD_PLMN),KC_4,KC_5,KC_6,KC_0,_______
-#define _____________________SYMNUM_RT3_____________________ _______,KC_1,KC_2,KC_3,KC_DOT,_______
+#define _____________________SYMNUM_RT3_____________________ _______,    KC_1,KC_2,KC_3,KC_DOT,_______
 
 #define _____________________GAMING_LF1_____________________ KC_ESC,    KC_I,    KC_Q,    KC_W,    KC_E,    KC_R
 #define _____________________GAMING_LF2_____________________ KC_LCTRL, KC_LSFT,    KC_A,    KC_S,    KC_D,    KC_F
