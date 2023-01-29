@@ -69,13 +69,13 @@ enum userspace_layers {
 #define _____________________COLEMAK_L1_____________________ KC_ESC,        KC_Q,  KC_W, KC_F, KC_P, KC_B
 #define _____________________COLEMAK_L2_____________________ LGUI_T(KC_DEL),LALT_T(KC_A), KC_R, KC_S, KC_T, KC_G
 #define _____________________COLEMAK_L3_____________________ KC_LALT,       CTL_T(KC_Z), KC_X, KC_C, KC_D, KC_V
-#define _____________________COLE_TH_L1_____________________ TO(_NAVIGATION), KC_LEFT, MT(MOD_LSFT, KC_SPC), LT(_SYMNUM, KC_ENT), KC_UP
+#define _____________________COLE_TH_L1_____________________ TO(_NAVIGATION), KC_LEFT, MT(MOD_LSFT, KC_TAB), LT(_SYMNUM, KC_SPC), KC_UP
 #define _____________________COLE_TH_L2_____________________ OSM(MOD_LSFT), KC_DOWN
 
 #define _____________________COLEMAK_R1_____________________ KC_J, KC_L, KC_U   , KC_Y  , KC_SCLN         , KC_LBRC
 #define _____________________COLEMAK_R2_____________________ KC_M, KC_N, KC_E   , KC_I  , RALT_T(KC_O)    , RGUI_T(KC_QUOTE)
 #define _____________________COLEMAK_R3_____________________ KC_K, KC_H, KC_COMM, KC_DOT, RCTL_T(KC_SLASH), OSL(_SHORTCUT)
-#define _____________________COLE_TH_R1_____________________ KC_LEFT, TD(TD_TABC), KC_BSPC, KC_RIGHT, TO(_QWERTY)
+#define _____________________COLE_TH_R1_____________________ KC_LEFT, TD(TD_TABC), KC_ENT, KC_RIGHT, TO(_QWERTY)
 #define _____________________COLE_TH_R2_____________________ OSL(_NAVIGATION), C(KC_BSPC)
 
 #define _____________________SHORTCT_L1_____________________ RESET,_______,C(KC_W),C(KC_F),SNAPL,SNAPR
