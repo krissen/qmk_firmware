@@ -77,11 +77,11 @@ static void render_status(void) {
     }
 
     // Host Keyboard LED Status
-    led_t led_state = host_keyboard_led_state();
+	led_t led_state = host_keyboard_led_state();
 	oled_write_P(PSTR(OLED_RENDER_LOCK_NAME), false);
-    oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
-    oled_write_P(led_state.caps_lock ? PSTR("CAP ") : PSTR("    "), false);
-    oled_write_P(led_state.scroll_lock ? PSTR("SCR ") : PSTR("    "), false);
+	oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
+	oled_write_P(led_state.caps_lock ? PSTR("CAP ") : PSTR("    "), false);
+	oled_write_P(led_state.scroll_lock ? PSTR("SCR ") : PSTR("    "), false);
 	oled_advance_page(true);
 	render_mod_status(get_mods() | get_oneshot_mods());
 }
@@ -91,18 +91,18 @@ bool oled_task_user(void) {
     if (is_keyboard_master()) {
 		render_status();
         return false;
-    } else {
-		
+	} else {
+
 		#ifdef WPM_ENABLE
 		//render_wpm_graph();
 		render_anim();
-        oled_set_cursor(0,7);
+		oled_set_cursor(0,7);
 		write_wpm();
-		
+
 		#endif
-        //render_dice();
+		//render_dice();
 		oled_scroll_left();
-        return false;
-    }
+		return false;
+	}
 }
 #endif
