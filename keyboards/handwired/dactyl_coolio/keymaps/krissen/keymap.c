@@ -134,11 +134,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		_____________________QWER_TH_L2_____________________,       _____________________QWER_TH_R2_____________________
 	),
 	[_SYMBOLS] = LAYOUT_wrapper(
-		RESET,_______,C(KC_W),C(KC_F),_______,_______,			KC_MYCM, _______, _______, _______, _______,   RESET,
-		TRML, _______, _______, _______, _______, _______,		_______, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______,
-		TSKMN, _______, _______, _______, LALT(LCTL(KC_V)),_______,	_______, _______, _______, _______, G(KC_DOT), TO(_COLEMAK),
-		_______, _______, _______, _______, _______,       	    _______, _______, _______, _______, _______,
-		_______, _______,                                  	    _______,_______
+		KC_F1,		KC_F2,      KC_F3, 	KC_F4, 	       KC_F5,	   KC_F6,		KC_F7,      KC_F8,          KC_F9,         KC_F10,  	     KC_F11,	      KC_F12,
+		KC_NUBS,	LALT(KC_8), LALT(KC_9), LALT(KC_RBRC), LALT(KC_7), LALT(LSFT(KC_7)),	RSFT(KC_7), RSFT(KC_MINUS), RSFT(KC_BSLS), RALT(RSFT(KC_8)), RALT(RSFT(KC_9)),KC_MINUS,
+		LALT(KC_EQUAL), LSFT(KC_1), LALT(KC_2), LSFT(KC_3),    LSFT(KC_4), LSFT(KC_5),		RSFT(KC_6), RALT(KC_3),     RSFT(KC_8),    RSFT(KC_9),       RALT(KC_SLSH),   KC_EQUAL,
+		_______, _______, _______, _______, _______,       	    				_______, _______, _______, _______, _______,
+		_______, _______,                                  	    				_______, _______
 	),
 	[_SHORTCUT] = LAYOUT_wrapper(
 		_____________________SHORTCT_L1_____________________,       _____________________SHORTCT_R1_____________________,
@@ -147,19 +147,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		_____________________SHRT_TH_L1_____________________,       _____________________SHRT_TH_R1_____________________, 
 		_____________________SHRT_TH_L2_____________________,       _____________________SHRT_TH_R2_____________________
 	),
-	[_SYMNUM] = LAYOUT_wrapper(
-		_____________________SYMNUM_LF1_____________________,       _____________________SYMNUM_RT1_____________________,
-		_____________________SYMNUM_LF2_____________________,       _____________________SYMNUM_RT2_____________________,
-		_____________________SYMNUM_LF3_____________________,	    _____________________SYMNUM_RT3_____________________,
-		_______, _______, _______, _______, _______,       	    _______, _______, _______, _______, _______,
-		_______, _______,                                  	    _______,_______
-	),
-	[_NAVIGATION] = LAYOUT(
-		_______, _______, KC_HOME,   KC_UP,  KC_END, KC_PGUP,        _______,   KC_F7,   KC_F8,   KC_F9,  KC_F10, KC_CAPS,
-		_______, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,        _______,   KC_F4,   KC_F5,   KC_F6,  KC_F11, KC_SLCK,
-		_______, _______,_______,C(KC_MINS),C(KC_EQL), _______,	     _______,   KC_F1,   KC_F2,   KC_F3,  KC_F12, KC_NLCK,
-		_______, _______, _______, _______, _______, _______,        _______, _______, _______, _______, _______, _______,
-		_______,                                                                                                  _______
+	[_NUMNAV] = LAYOUT_wrapper(
+		KC_ESC,      KC_SLSH,	     KC_7, KC_8, KC_9, KC_KP_MINUS,		KC_VOLU, KC_HOME, KC_UP,   KC_PGUP,  RGUI(KC_X), ASG_V,
+		KC_KP_EQUAL, KC_KP_ASTERISK, KC_4, KC_5, KC_6, KC_KP_PLUS,		KC_MUTE, KC_LEFT, KC_DOWN, KC_RIGHT, RGUI(KC_C), RSFT(KC_2),
+		KC_KP_DOT,   KC_0, 	     KC_1, KC_2, KC_3, KC_KP_COMMA,		KC_VOLD, KC_END,  KC_PSCR, KC_PGDN,  RGUI(KC_V), RSFT(KC_EQUAL),
+		_______, _______, _______, _______, _______,       	    		_______, _______, _______, _______, _______,
+		_______, _______,                                  	    		_______,_______
 	),
 
 	/*[_BLANK] = LAYOUT(

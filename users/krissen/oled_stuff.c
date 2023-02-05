@@ -51,14 +51,11 @@ static void render_status(void) {
 		case _SYMBOLS:
 			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_SYMBOLS), false);
 			break;
-		case _SYMNUM:
-			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_SYMNUM), false);
+		case _NUMNAV:
+			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_NUMNAV), false);
 			break;
 		case _SHORTCUT:
 			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_SHORTCUT), false);
-			break;
-		case _NAVIGATION:
-			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_NAVIGATION), false);
 			break;
 		case _QWERTY:
 			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_QWERTY), false);

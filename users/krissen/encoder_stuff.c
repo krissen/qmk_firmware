@@ -63,7 +63,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 					return true;
 				}
 			break;
-			case _NAVIGATION:
+			case _NUMNAV:
 				// Move whole words. Hold shift to select while moving.
 				if (clockwise) {
 					tap_code16(A(KC_RGHT));
