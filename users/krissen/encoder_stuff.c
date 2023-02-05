@@ -28,8 +28,10 @@ void matrix_scan_user(void) {
 	}
 }
 
+uint8_t selected_layer = 0;
+
 bool encoder_update_user(uint8_t index, bool clockwise) {
-	if (index == 0) {
+	if (index == 0) {// Left encoder
 		switch (get_highest_layer(layer_state)) {
 			case _COLEMAK:
 				// Tabbing through windows
@@ -82,42 +84,19 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 					tap_code16(G(KC_Z));
 					return true;
 				}
-				break;
+			break;
 		}
 		return true;
-	} else if (index == 1) {
-		switch (get_highest_layer(layer_state)) {
-			case _COLEMAK:
-				// Scroll through tabs
-				if (clockwise) {
-					tap_code16(C(KC_PGDN));
-					return true;
-				} else {
-					tap_code16(C(KC_PGUP));
-					return true;
-				}
-			break;
-			case _SHORTCUT:
-				// Volume Control
-				if (clockwise) {
-					tap_code(KC_VOLU);
-					return true;
-				} else {
-					tap_code(KC_VOLD);
-					return true;
-				}
-			break;
-			default:
-				// History Scrubbing
-				if (clockwise) {
-					tap_code16(G(KC_Y));
-					return true;
-				} else {
-					tap_code16(G(KC_Z));
-					return true;
-				}
-			break;
+	} else if (index == 1) {// Right encoder
+		// Ändra lager med encoder
+		// https://www.reddit.com/r/olkb/comments/cmyodl/comment/ew9dg5m/?utm_source=share&utm_medium=web2x&context=3
+		if (!clockwise && selected_layer  < 10) {
+			selected_layer ++;
+		} else if (clockwise && selected_layer  > 0){
+			selected_layer --;
 		}
+		layer_clear();
+		layer_on(selected_layer);
 		return true;
 	}
 	return false;
