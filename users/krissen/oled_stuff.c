@@ -48,6 +48,9 @@ static void render_status(void) {
 		case _COLEMAK:
 			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_COLEMAK), false);
 			break;
+		case _SYMBOLS:
+			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_SYMBOLS), false);
+			break;
 		case _SYMNUM:
 			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_SYMNUM), false);
 			break;

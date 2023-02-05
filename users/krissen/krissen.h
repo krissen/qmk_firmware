@@ -35,10 +35,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Define layer names */
 enum userspace_layers {
 	_COLEMAK = 0,
-	_QWERTY,
+	_SYMBOLS,
 	_SHORTCUT,
 	_SYMNUM,
 	_NAVIGATION,
+	_QWERTY,
 };
 
 #define CADEL LALT(LCTL(KC_DELETE))
@@ -59,8 +60,8 @@ enum userspace_layers {
 
 #define _____________________COLEMAK_L1_____________________ KC_ESC,        KC_Q,  KC_W, KC_F, KC_P, KC_B
 #define _____________________COLEMAK_L2_____________________ TD(TD_GUIDOL),LCTL_T(KC_A), KC_R, KC_S, KC_T, KC_G
-#define _____________________COLEMAK_L3_____________________ LT(_NAVIGATION, LSFT(KC_RBRC)), LALT_T(KC_Z), KC_X, KC_C, KC_D, KC_V
-#define _____________________COLE_TH_L1_____________________ TO(_NAVIGATION), KC_LEFT, MT(MOD_LSFT, KC_TAB), LT(_SYMNUM, KC_ENT), KC_BSPC
+#define _____________________COLEMAK_L3_____________________ LSFT(KC_RBRC), LALT_T(KC_Z), KC_X, KC_C, KC_D, KC_V
+#define _____________________COLE_TH_L1_____________________ TO(_SYMBOLS), KC_LEFT, MT(MOD_LSFT, KC_TAB), LT(_SYMNUM, KC_ENT), KC_BSPC
 #define _____________________COLE_TH_L2_____________________ OSM(MOD_LSFT), KC_DOWN
 
 #define _____________________COLEMAK_R1_____________________ KC_J, KC_L, KC_U   , KC_Y  , KC_SCLN         , KC_LBRC

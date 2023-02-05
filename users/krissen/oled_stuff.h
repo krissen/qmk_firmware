@@ -37,6 +37,7 @@ static const char PROGMEM logo[] = {
 #    define OLED_RENDER_LAYOUT_COLEMAK "Colemak"
 #    define OLED_RENDER_LAYOUT_SYMNUM "Sym Num"
 #    define OLED_RENDER_LAYOUT_SHORTCUT "Shortcut"
+#    define OLED_RENDER_LAYOUT_SYMBOLS "Symbols"
 #    define OLED_RENDER_LAYOUT_GAMING "GAME ZONE"
 //#    define OLED_RENDER_LAYOUT_WARHAMMER "WAAAAGH!!"
 #    define OLED_RENDER_LAYOUT_NAVIGATION "Navigate"
