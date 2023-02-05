@@ -17,8 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Enumerate the tap dances
 enum taps {
-	//TD_PRNS = 0,
-	//TD_BRCS, //Brackets
+	TD_GUIDOL,
 	TD_EXLM, //! and ?
 	TD_PCAS, //% and *
 	TD_PLMN, //+ and -
@@ -35,28 +34,89 @@ enum taps {
 	TD_8,
 	TD_9
 };
-// TAP DANCING
 
+// define a type containing as many tapdance states as you need
+typedef enum {
+	SINGLE_TAP,
+	SINGLE_HOLD,
+	DOUBLE_SINGLE_TAP
+} td_state_t;
+
+// create a global instance of the tapdance state type
+static td_state_t td_state;
+
+// function to determine the current tapdance state
+int cur_dance (qk_tap_dance_state_t *state);
+
+// `finished` and `reset` functions for each tapdance keycode
+void guidol_finished (qk_tap_dance_state_t *state, void *user_data);
+void guidol_reset (qk_tap_dance_state_t *state, void *user_data);
+
+// determine the tapdance state to return
+int cur_dance (qk_tap_dance_state_t *state) {
+	if (state->count == 1) {
+		if (state->interrupted || !state->pressed) { return SINGLE_TAP; }
+	else { return SINGLE_HOLD; }
+	}
+	if (state->count == 2) { return DOUBLE_SINGLE_TAP; }
+else { return 3; } // any number higher than the maximum state value you return above
+}
+
+// handle the possible states for each tapdance keycode you define:
+void guidol_finished (qk_tap_dance_state_t *state, void *user_data) {
+	td_state = cur_dance(state);
+	switch (td_state) {
+		case SINGLE_TAP:
+			register_mods(MOD_BIT(KC_RALT));
+			register_code16(KC_4);
+			break;
+		case SINGLE_HOLD:
+			register_mods(MOD_BIT(KC_LGUI)); // for a layer-tap key, use `layer_on(_MY_LAYER)` here
+			break;
+		case DOUBLE_SINGLE_TAP: // allow nesting of 2 parens `((` within tapping term
+			tap_code16(KC_LPRN);
+			register_code16(KC_LPRN);
+	}
+}
+
+void guidol_reset (qk_tap_dance_state_t *state, void *user_data) {
+	switch (td_state) {
+		case SINGLE_TAP:
+			unregister_code16(KC_4);
+			unregister_mods(MOD_BIT(KC_RALT));
+			break;
+		case SINGLE_HOLD:
+			unregister_mods(MOD_BIT(KC_LGUI)); // for a layer-tap key, use `layer_off(_MY_LAYER)` here
+			break;
+		case DOUBLE_SINGLE_TAP:
+			unregister_code16(KC_LPRN);
+	}
+}
+
+// TAP DANCING
 qk_tap_dance_action_t tap_dance_actions[] = {
-  //[TD_PRNS] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN, KC_RPRN),
-  //[TD_BRCS] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC),
-  [TD_EXLM] = ACTION_TAP_DANCE_DOUBLE(KC_EXLM, KC_QUES),
-  [TD_PCAS] = ACTION_TAP_DANCE_DOUBLE(KC_PERC, KC_ASTR),
-  [TD_PLMN] = ACTION_TAP_DANCE_DOUBLE(KC_PPLS, KC_PMNS),
-  [TD_ASDI] = ACTION_TAP_DANCE_DOUBLE(KC_PAST, KC_PSLS),
-  [TD_TABC] = ACTION_TAP_DANCE_DOUBLE(KC_TAB, S(KC_TAB)),
-  [TD_0] = ACTION_TAP_DANCE_DOUBLE(KC_0, C(KC_0)),
-  [TD_1] = ACTION_TAP_DANCE_DOUBLE(KC_1, C(KC_1)),
-  [TD_2] = ACTION_TAP_DANCE_DOUBLE(KC_2, C(KC_2)),
-  [TD_3] = ACTION_TAP_DANCE_DOUBLE(KC_3, C(KC_3)),
-  [TD_4] = ACTION_TAP_DANCE_DOUBLE(KC_4, C(KC_4)),
-  [TD_5] = ACTION_TAP_DANCE_DOUBLE(KC_5, C(KC_5)),
-  [TD_6] = ACTION_TAP_DANCE_DOUBLE(KC_6, C(KC_6)),
-  [TD_7] = ACTION_TAP_DANCE_DOUBLE(KC_7, C(KC_7)),
-  [TD_8] = ACTION_TAP_DANCE_DOUBLE(KC_8, C(KC_8)),
-  [TD_9] = ACTION_TAP_DANCE_DOUBLE(KC_9, C(KC_9))
+	[TD_GUIDOL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, guidol_finished, guidol_reset),
+	/* IDB3:s below */
+	//[TD_PRNS] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN, KC_RPRN),
+	//[TD_BRCS] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC),
+	[TD_EXLM] = ACTION_TAP_DANCE_DOUBLE(KC_EXLM, KC_QUES),
+	[TD_PCAS] = ACTION_TAP_DANCE_DOUBLE(KC_PERC, KC_ASTR),
+	[TD_PLMN] = ACTION_TAP_DANCE_DOUBLE(KC_PPLS, KC_PMNS),
+	[TD_ASDI] = ACTION_TAP_DANCE_DOUBLE(KC_PAST, KC_PSLS),
+	[TD_TABC] = ACTION_TAP_DANCE_DOUBLE(KC_TAB, S(KC_TAB)),
+	[TD_0] = ACTION_TAP_DANCE_DOUBLE(KC_0, C(KC_0)),
+	[TD_1] = ACTION_TAP_DANCE_DOUBLE(KC_1, C(KC_1)),
+	[TD_2] = ACTION_TAP_DANCE_DOUBLE(KC_2, C(KC_2)),
+	[TD_3] = ACTION_TAP_DANCE_DOUBLE(KC_3, C(KC_3)),
+	[TD_4] = ACTION_TAP_DANCE_DOUBLE(KC_4, C(KC_4)),
+	[TD_5] = ACTION_TAP_DANCE_DOUBLE(KC_5, C(KC_5)),
+	[TD_6] = ACTION_TAP_DANCE_DOUBLE(KC_6, C(KC_6)),
+	[TD_7] = ACTION_TAP_DANCE_DOUBLE(KC_7, C(KC_7)),
+	[TD_8] = ACTION_TAP_DANCE_DOUBLE(KC_8, C(KC_8)),
+	[TD_9] = ACTION_TAP_DANCE_DOUBLE(KC_9, C(KC_9))
 };
 
+// KEYMAPS
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*Base Layerer*/
 	[_COLEMAK] = LAYOUT_wrapper(
