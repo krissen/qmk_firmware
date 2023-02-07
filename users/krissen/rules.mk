@@ -1,4 +1,5 @@
 WPM_ENABLE = no # Enable words per minute counting
+MOUSEKEY_ENABLE = yes
 
 SRC += krissen.c
 SRC += process_records.c
