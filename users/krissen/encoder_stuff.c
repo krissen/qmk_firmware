@@ -88,16 +88,29 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 		}
 		return true;
 	} else if (index == 1) {// Right encoder
-		// Ändra lager med encoder
-		// https://www.reddit.com/r/olkb/comments/cmyodl/comment/ew9dg5m/?utm_source=share&utm_medium=web2x&context=3
-		if (!clockwise && selected_layer  < 10) {
-			selected_layer ++;
-		} else if (clockwise && selected_layer  > 0){
-			selected_layer --;
-		}
-		layer_clear();
-		layer_on(selected_layer);
-		return true;
+	switch (get_highest_layer(layer_state)) {
+		case _NUMNAV:
+			// Ändra lager med encoder
+			// https://www.reddit.com/r/olkb/comments/cmyodl/comment/ew9dg5m/?utm_source=share&utm_medium=web2x&context=3
+			if (!clockwise && selected_layer  < 10) {
+				selected_layer ++;
+				} else if (clockwise && selected_layer  > 0){
+				selected_layer --;
+			}
+			layer_clear();
+			layer_on(selected_layer);
+			return true;
+		break;
+		default:
+			if (clockwise) {
+				tap_code16(KC_LEFT);
+				return true;
+				} else {
+				tap_code16(KC_RIGHT);
+				return true;
+			}
+		break;
+	}
 	}
 	return false;
 }
