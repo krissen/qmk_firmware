@@ -53,7 +53,7 @@ enum userspace_layers {
 
 #define _____________________COLEMAK_R1_____________________ KC_J, KC_L, KC_U   , KC_Y  , KC_SCLN         , KC_LBRC
 #define _____________________COLEMAK_R2_____________________ KC_M, KC_N, KC_E   , KC_I  , RCTL_T(KC_O)    , RGUI_T(KC_QUOTE)
-#define _____________________COLEMAK_R3_____________________ KC_K, KC_H, KC_COMM, KC_DOT, RALT_T(KC_SLASH), OSL(_SHORTCUT)
+#define _____________________COLEMAK_R3_____________________ KC_K, KC_H, KC_COMM, KC_DOT, RALT_T(KC_SLASH), LT(_SHORTCUT, KC_BSLS)
 #define _____________________COLE_TH_R1_____________________ KC_BSPC, MT(MOD_RSFT, KC_SPC), LT(_SYMBOLS, KC_DEL), KC_RIGHT, KC_MUTE
 #define _____________________COLE_TH_R2_____________________ OSL(_NUMNAV), KC_UP
 
