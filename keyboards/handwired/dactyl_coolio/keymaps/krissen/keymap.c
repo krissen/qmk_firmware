@@ -120,11 +120,11 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*Base Layerer*/
 	[_COLEMAK] = LAYOUT_wrapper(
-		_____________________COLEMAK_L1_____________________,       _____________________COLEMAK_R1_____________________,
-		_____________________COLEMAK_L2_____________________,       _____________________COLEMAK_R2_____________________,
-		_____________________COLEMAK_L3_____________________,	    _____________________COLEMAK_R3_____________________,
-		_____________________COLE_TH_L1_____________________,       _____________________COLE_TH_R1_____________________,
-		_____________________COLE_TH_L2_____________________,       _____________________COLE_TH_R2_____________________
+		KC_ESC,        KC_Q,	  KC_W, KC_F, KC_P, KC_B,						KC_J, KC_L, KC_U   , KC_Y  , KC_SCLN         , KC_LBRC,
+		TD(TD_GUIDOL), LCTL_T(KC_A), KC_R, KC_S, KC_T, KC_G,						KC_M, KC_N, KC_E   , KC_I  , RCTL_T(KC_O)    , RGUI_T(KC_QUOTE),
+		LSFT(KC_RBRC), LALT_T(KC_Z), KC_X, KC_C, KC_D, KC_V,						KC_K, KC_H, KC_COMM, KC_DOT, RALT_T(KC_SLASH), LT(_SHORTCUT, KC_BSLS),
+		KC_MEDIA_PLAY_PAUSE, KC_LEFT, LT(_SHORTCUT, KC_BSPC), MT(MOD_RSFT, KC_TAB), OSM(MOD_LSFT),	OSM(MOD_LSFT), MT(MOD_RSFT, KC_SPC), LT(_SHORTCUT, KC_DEL), KC_RIGHT, KC_MUTE,
+		LT(_SYMBOLS, KC_ENT), OSL(_NUMNAV),								OSL(_NUMNAV), LT(_SYMBOLS, KC_ENT) 
 	),
 	[_SYMBOLS] = LAYOUT_wrapper(
 		KC_F1,		KC_F2,      KC_F3, 	KC_F4, 	       KC_F5,	   KC_F6,		KC_F7,      KC_F8,          KC_F9,         KC_F10,  	     KC_F11,	       KC_F12,
@@ -141,11 +141,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		_______, _______,                                  	    		_______,_______
 	),
 	[_SHORTCUT] = LAYOUT_wrapper(
-		_____________________SHORTCT_L1_____________________,       _____________________SHORTCT_R1_____________________,
-		_____________________SHORTCT_L2_____________________,       _____________________SHORTCT_R2_____________________,
-		_____________________SHORTCT_L3_____________________,       _____________________SHORTCT_R3_____________________,
-		_____________________SHRT_TH_L1_____________________,       _____________________SHRT_TH_R1_____________________, 
-		_____________________SHRT_TH_L2_____________________,       _____________________SHRT_TH_R2_____________________
+RESET,   _______, KC_BTN1, KC_MS_U, KC_BTN2, _______, 		_______, _______, _______, _______, _______, RESET,
+_______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______,		_______, _______, _______, _______, _______, _______,
+_______, _______, _______, _______, _______, _______,		_______, _______, _______, _______, _______, TO(_COLEMAK),
+_______, _______, _______, RGB_TOG, RGB_M_P,			RGB_HUD, RGB_HUI, RGB_MOD, RGB_RMOD, _______,
+_______,_______,						RGB_VAD, RGB_VAI 
 	),
 	[_QWERTY] = LAYOUT_wrapper(
 		_____________________QWERTY_L1______________________,       _____________________QWERTY_R1______________________,
