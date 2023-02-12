@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifdef OLED_ENABLE
 
 #ifdef WPM_ENABLE
-//#include "wpm_oled.c"
+//#include "wpm_oled.c" */
 #include "wpm_cat.c"
 char wpm_str[10];
 #endif
@@ -57,9 +57,9 @@ static void render_status(void) {
 		case _SHORTCUT:
 			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_SHORTCUT), false);
 			break;
-		case _QWERTY:
-			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_QWERTY), false);
-			break;
+		/* case _QWERTY: */
+		/* 	oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_QWERTY), false); */
+		/* 	break; */
 		default:
 			// Or use the write_ln shortcut over adding '\n' to the end of your string
 			oled_write_ln_P(PSTR("Undefined"), false);
