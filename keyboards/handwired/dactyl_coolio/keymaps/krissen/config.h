@@ -38,8 +38,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLED_SPLIT { 15, 15 }
 #define RGBLED_NUM 30
 
-//#undef MOUSEKEY_MAX_SPEED
-//#define MOUSEKEY_MAX_SPEED 1
+#ifdef MOUSEKEY_ENABLE
+/* #define 	MOUSEKEY_DELAY 10		// Delay between pressing a movement key and cursor movement */
+/* #define 	MOUSEKEY_INTERVAL 20		// Time between cursor movements in milliseconds */
+/* #define 	MOUSEKEY_MOVE_DELTA 8		// Step size */
+#undef 		MOUSEKEY_MAX_SPEED
+#define 	MOUSEKEY_MAX_SPEED 6		// Maximum cursor speed at which acceleration stops, DEF: 10
+#undef 		MOUSEKEY_TIME_TO_MAX
+#define 	MOUSEKEY_TIME_TO_MAX 80		// Time until maximum cursor speed is reached, DEF: 30 */
+/* #define 	MOUSEKEY_WHEEL_DELAY 10		// Delay between pressing a wheel key and wheel movement */
+/* #define 	MOUSEKEY_WHEEL_INTERVAL 80	// Time between wheel movements */
+/* #define 	MOUSEKEY_WHEEL_MAX_SPEED 8	// Maximum number of scroll steps per scroll action */
+/* #define 	MOUSEKEY_WHEEL_TIME_TO_MAX 40	// Time until maximum scroll speed is reached */
+#endif
 
-//#undef MOUSEKEY_TIME_TO_MAX
-//#define MOUSEKEY_TIME_TO_MAX 1
