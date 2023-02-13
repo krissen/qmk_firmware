@@ -66,22 +66,6 @@ void guidol_finished (qk_tap_dance_state_t *state, void *user_data) {
 			register_code16(KC_LPRN);
 	}
 }
-void tick_finished (qk_tap_dance_state_t *state, void *user_data) {
-	td_state = cur_dance(state);
-	switch (td_state) {
-		case SINGLE_TAP:
-			register_mods(MOD_BIT(KC_RSFT));
-			register_code16(KC_EQUAL);
-			break;
-		case SINGLE_HOLD:
-			register_mods(MOD_BIT(KC_RGUI)); // for a layer-tap key, use `layer_on(_MY_LAYER)` here
-			break;
-		case DOUBLE_SINGLE_TAP: // allow nesting of 2 parens `((` within tapping term
-			tap_code16(KC_EQUAL);
-			register_code16(KC_EQUAL);
-	}
-}
-
 void guidol_reset (qk_tap_dance_state_t *state, void *user_data) {
 	switch (td_state) {
 		case SINGLE_TAP:
@@ -96,6 +80,7 @@ void guidol_reset (qk_tap_dance_state_t *state, void *user_data) {
 	}
 }
 
+
 void tick_reset (qk_tap_dance_state_t *state, void *user_data) {
 	switch (td_state) {
 		case SINGLE_TAP:
@@ -103,10 +88,26 @@ void tick_reset (qk_tap_dance_state_t *state, void *user_data) {
 			unregister_mods(MOD_BIT(KC_RSFT));
 			break;
 		case SINGLE_HOLD:
-			unregister_mods(MOD_BIT(KC_LGUI)); // for a layer-tap key, use `layer_off(_MY_LAYER)` here
+			unregister_mods(MOD_BIT(KC_RGUI)); // for a layer-tap key, use `layer_off(_MY_LAYER)` here
 			break;
 		case DOUBLE_SINGLE_TAP:
 			unregister_code16(KC_EQUAL);
+	}
+}
+
+void tick_finished (qk_tap_dance_state_t *state, void *user_data) {
+	td_state = cur_dance(state);
+	switch (td_state) {
+		case SINGLE_TAP:
+			register_mods(MOD_BIT(KC_RSFT));
+			register_code16(KC_EQUAL);
+			break;
+		case SINGLE_HOLD:
+			register_mods(MOD_BIT(KC_RGUI)); // for a layer-tap key, use `layer_on(_MY_LAYER)` here
+			break;
+		case DOUBLE_SINGLE_TAP: // allow nesting of 2 parens `((` within tapping term
+			tap_code16(KC_EQUAL);
+		register_code16(KC_EQUAL);
 	}
 }
 
@@ -127,9 +128,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		LT(_SYMBOLS, KC_ENT), OSL(_NUMNAV),								OSL(_NUMNAV), LT(_SYMBOLS, KC_ENT) 
 	),
 	[_SYMBOLS] = LAYOUT_wrapper(
-		KC_F1,		KC_F2,      KC_F3, 	KC_F4, 	       KC_F5,	   KC_F6,		KC_F7,      KC_F8,          KC_F9,         KC_F10,  	     KC_F11,	       KC_F12,
-		KC_NUBS,	LALT(KC_8), LALT(KC_9), LALT(KC_RBRC), LALT(KC_7), LALT(LSFT(KC_7)),	RSFT(KC_7), RSFT(KC_MINUS), RSFT(KC_BSLS), RALT(RSFT(KC_8)), RALT(RSFT(KC_9)), RSFT(KC_2),
-		KC_GRAVE, LSFT(KC_1), LALT(KC_2), LSFT(KC_3),    LSFT(KC_4), LSFT(KC_5),		RSFT(KC_6), RALT(KC_3),     RSFT(KC_8),    RSFT(KC_9),       RALT(KC_EQUAL),    TD(TD_TICK),
+		KC_F1,	  KC_F2,      KC_F3, 	KC_F4, 	       KC_F5,	   KC_F6,		KC_F7,      KC_F8,          KC_F9,         KC_F10,  	     KC_F11,	       KC_F12,
+		KC_GRAVE, LALT(KC_8), LALT(KC_9), LALT(KC_RBRC), LALT(KC_7), LALT(LSFT(KC_7)),	RSFT(KC_7), RSFT(KC_MINUS), RSFT(KC_BSLS), RALT(RSFT(KC_8)), RALT(RSFT(KC_9)), RSFT(KC_2),
+		KC_NUBS,  LSFT(KC_1), LALT(KC_2), LSFT(KC_3),    LSFT(KC_4), LSFT(KC_5),		RSFT(KC_6), RALT(KC_3),     RSFT(KC_8),    RSFT(KC_9),       RALT(KC_EQUAL),    TD(TD_TICK),
 		_______, KC_UP, TO(_COLEMAK), _______, _______,       	    				_______, _______, TO(_COLEMAK), KC_DOWN, _______,
 		_______, _______,                                  	    				_______, _______
 	),
