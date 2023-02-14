@@ -1,4 +1,6 @@
 /*
+ * keymap.c
+ *
 Copyright 2021 id-b3
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -62,8 +64,8 @@ void guidol_finished (qk_tap_dance_state_t *state, void *user_data) {
 			register_mods(MOD_BIT(KC_LGUI)); // for a layer-tap key, use `layer_on(_MY_LAYER)` here
 			break;
 		case DOUBLE_SINGLE_TAP: // allow nesting of 2 parens `((` within tapping term
-			tap_code16(KC_LPRN);
-			register_code16(KC_LPRN);
+			register_mods(MOD_BIT(KC_LSFT));
+			register_code16(KC_GRAVE);
 	}
 }
 void guidol_reset (qk_tap_dance_state_t *state, void *user_data) {
@@ -76,24 +78,11 @@ void guidol_reset (qk_tap_dance_state_t *state, void *user_data) {
 			unregister_mods(MOD_BIT(KC_LGUI)); // for a layer-tap key, use `layer_off(_MY_LAYER)` here
 			break;
 		case DOUBLE_SINGLE_TAP:
-			unregister_code16(KC_LPRN);
+			unregister_mods(MOD_BIT(KC_LSFT));
+			unregister_code16(KC_GRAVE);
 	}
 }
 
-
-void tick_reset (qk_tap_dance_state_t *state, void *user_data) {
-	switch (td_state) {
-		case SINGLE_TAP:
-			unregister_code16(KC_EQUAL);
-			unregister_mods(MOD_BIT(KC_RSFT));
-			break;
-		case SINGLE_HOLD:
-			unregister_mods(MOD_BIT(KC_RGUI)); // for a layer-tap key, use `layer_off(_MY_LAYER)` here
-			break;
-		case DOUBLE_SINGLE_TAP:
-			unregister_code16(KC_EQUAL);
-	}
-}
 
 void tick_finished (qk_tap_dance_state_t *state, void *user_data) {
 	td_state = cur_dance(state);
@@ -106,8 +95,26 @@ void tick_finished (qk_tap_dance_state_t *state, void *user_data) {
 			register_mods(MOD_BIT(KC_RGUI)); // for a layer-tap key, use `layer_on(_MY_LAYER)` here
 			break;
 		case DOUBLE_SINGLE_TAP: // allow nesting of 2 parens `((` within tapping term
-			tap_code16(KC_EQUAL);
-		register_code16(KC_EQUAL);
+			register_code16(KC_EQUAL);
+	}
+}
+
+void tick_reset (qk_tap_dance_state_t *state, void *user_data) {
+	switch (td_state) {
+		case SINGLE_TAP:
+			unregister_code16(KC_EQUAL);
+			unregister_mods(MOD_BIT(KC_RSFT));
+			register_code16(KC_SPACE);
+			unregister_code16(KC_SPACE);
+			break;
+		case SINGLE_HOLD:
+			unregister_mods(MOD_BIT(KC_RGUI)); // for a layer-tap key, use `layer_off(_MY_LAYER)` here
+			break;
+		case DOUBLE_SINGLE_TAP:
+			unregister_code16(KC_EQUAL);
+			register_code16(KC_SPACE);
+			unregister_code16(KC_SPACE);
+			break;
 	}
 }
 
