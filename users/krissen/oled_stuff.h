@@ -16,7 +16,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 #include "oled_driver.h"
 
+/* Did this fix right side OLED being broken?
+ * https://www.reddit.com/r/olkb/comments/q6s02g/comment/hge4r71/?utm_source=share&utm_medium=web2x&context=3 */
 bool process_record_user_oled(uint16_t keycode, keyrecord_t *record);
+
 //void oled_dice(int num);
 
 static const char PROGMEM shift_key[] = {210,211,32,0};

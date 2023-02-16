@@ -12,6 +12,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/* Did this fix right side OLED being broken?
+ * https://www.reddit.com/r/olkb/comments/q6s02g/comment/hge4r71/?utm_source=share&utm_medium=web2x&context=3 */
 #define SPLIT_TRANSPORT_MIRROR
 
 #pragma once
