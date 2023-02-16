@@ -1,16 +1,6 @@
-WPM_ENABLE = no # Enable words per minute counting
-
 SRC += id-b3.c
-SRC += process_records.c
+SRC += typing/combos.c
 
-ifeq ($(strip $(OLED_ENABLE)), yes)
-    SRC += oled_stuff.c
-endif
-
-ifeq ($(strip $(ENCODER_ENABLE)), yes)
-    SRC += encoder_stuff.c
-endif
-
-ifeq ($(strip $(PIMORONI_TRACKBALL_ENABLE)), yes)
-    SRC += pimoroni_trackball.c
-endif
+TAP_DANCE_ENABLE = no
+EXTRAKEY_ENABLE = yes
+COMBO_ENABLE = yes

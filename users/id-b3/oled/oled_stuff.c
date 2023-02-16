@@ -18,12 +18,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef OLED_ENABLE
 
-#ifdef WPM_ENABLE
-	//#include "wpm_oled.c"
-	#include "wpm_cat.c"
-	char wpm_str[10];
-#endif
-
 extern uint8_t is_master;
 
 void render_mod_status(uint8_t modifiers) {
@@ -92,16 +86,6 @@ bool oled_task_user(void) {
 		render_status();
         return false;
     } else {
-		
-		#ifdef WPM_ENABLE
-		//render_wpm_graph();
-		render_anim();
-        oled_set_cursor(0,7);
-		write_wpm();
-		
-		#endif
-        //render_dice();
-		oled_scroll_left();
         return false;
     }
 }
