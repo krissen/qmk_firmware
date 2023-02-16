@@ -88,7 +88,9 @@ bool oled_task_user(void) {
 			write_wpm();
 		#endif
 		//render_dice();
-		oled_scroll_left();
+		/* render_status(); */
+		/* render_anim(); */
+		/* oled_scroll_left(); */
 		return false;
 	}
 }

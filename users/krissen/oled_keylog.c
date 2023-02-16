@@ -1,5 +1,7 @@
 #include "oled_keylog.h"
 
+bool should_process_keypress(void) { return true; }
+
 // clang-format on
 void add_keylog(uint16_t keycode) {
     if ((keycode >= QK_MOD_TAP && keycode <= QK_MOD_TAP_MAX) || (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX) || (keycode >= QK_MODS && keycode <= QK_MODS_MAX)) {
