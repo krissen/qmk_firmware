@@ -78,16 +78,14 @@ static void render_status(void) {
 
 bool oled_task_user(void) {
 	if (is_keyboard_master()) {
-	render_status();
+		render_status();
 		return false;
 	} else {
-
 		#ifdef WPM_ENABLE
-		//render_wpm_graph();
-		render_anim();
-		oled_set_cursor(0,7);
-		write_wpm();
-
+			//render_wpm_graph();
+			render_anim();
+			oled_set_cursor(0,7);
+			write_wpm();
 		#endif
 		//render_dice();
 		oled_scroll_left();

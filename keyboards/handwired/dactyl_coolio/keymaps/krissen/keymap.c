@@ -25,7 +25,7 @@ enum taps {
 
 // define a type containing as many tapdance states as you need
 typedef enum {
-	SINGLE_TAP,
+	SINGLE_TAP = 0,
 	SINGLE_HOLD,
 	DOUBLE_SINGLE_TAP
 } td_state_t;
@@ -80,6 +80,7 @@ void guidol_reset (qk_tap_dance_state_t *state, void *user_data) {
 		case DOUBLE_SINGLE_TAP:
 			unregister_mods(MOD_BIT(KC_LSFT));
 			unregister_code16(KC_GRAVE);
+			break;
 	}
 }
 
@@ -90,12 +91,15 @@ void tick_finished (qk_tap_dance_state_t *state, void *user_data) {
 		case SINGLE_TAP:
 			register_mods(MOD_BIT(KC_RSFT));
 			register_code16(KC_EQUAL);
+			register_code16(KC_SPACE);
 			break;
 		case SINGLE_HOLD:
 			register_mods(MOD_BIT(KC_RGUI)); // for a layer-tap key, use `layer_on(_MY_LAYER)` here
 			break;
 		case DOUBLE_SINGLE_TAP: // allow nesting of 2 parens `((` within tapping term
 			register_code16(KC_EQUAL);
+			register_code16(KC_SPACE);
+			break;
 	}
 }
 
@@ -103,16 +107,14 @@ void tick_reset (qk_tap_dance_state_t *state, void *user_data) {
 	switch (td_state) {
 		case SINGLE_TAP:
 			unregister_code16(KC_EQUAL);
-			unregister_mods(MOD_BIT(KC_RSFT));
-			register_code16(KC_SPACE);
 			unregister_code16(KC_SPACE);
+			unregister_mods(MOD_BIT(KC_RSFT));
 			break;
 		case SINGLE_HOLD:
 			unregister_mods(MOD_BIT(KC_RGUI)); // for a layer-tap key, use `layer_off(_MY_LAYER)` here
 			break;
 		case DOUBLE_SINGLE_TAP:
 			unregister_code16(KC_EQUAL);
-			register_code16(KC_SPACE);
 			unregister_code16(KC_SPACE);
 			break;
 	}
