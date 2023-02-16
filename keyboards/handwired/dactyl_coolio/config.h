@@ -18,11 +18,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x0000
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    dudzie
-#define PRODUCT         Dactyl Coolio
+/* #define VENDOR_ID       0xFEED */
+/* #define PRODUCT_ID      0x0000 */
+/* #define DEVICE_VER      0x0001 */
+/* #define MANUFACTURER    dudzie */
+/* #define PRODUCT         DactylCoolio */
 
 /* key matrix size */
 /* rows are doubled up */
