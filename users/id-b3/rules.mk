@@ -1,6 +1,16 @@
-SRC += id-b3.c
-SRC += typing/combos.c
+WPM_ENABLE = yes # Enable words per minute counting
 
-TAP_DANCE_ENABLE = no
-EXTRAKEY_ENABLE = yes
-COMBO_ENABLE = yes
+SRC += id-b3.c
+SRC += process_records.c
+
+ifeq ($(strip $(OLED_DRIVER_ENABLE)), yes)
+    SRC += oled_stuff.c
+endif
+
+ifeq ($(strip $(ENCODER_ENABLE)), yes)
+    SRC += encoder_stuff.c
+endif
+
+ifeq ($(strip $(PIMORONI_TRACKBALL_ENABLE)), yes)
+    SRC += pimoroni_trackball.c
+endif

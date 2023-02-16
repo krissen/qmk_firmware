@@ -1,15 +1,7 @@
 #pragma once
 
-// SAVING MEMORY
-#define NO_ACTION_MACRO
-#define NO_ACTION_FUNCTION
-#define NO_MUSIC_MODE
-#undef LOCKING_SUPPORT_ENABLE
-#undef LOCKING_RESYNC_ENABLE
-
-// Optimisations for mod-tap
-#define IGNORE_MOD_TAP_INTERRUPT
-#define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 220
-
-#define COMBO_COUNT 6
+#ifdef OLED_DRIVER_ENABLE
+  #define OLED_DISPLAY_128X64
+  #define OLED_FONT_H "coolio_font.h"
+  #define OLED_TIMEOUT 60000
+#endif
