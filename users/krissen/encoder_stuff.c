@@ -34,7 +34,7 @@ void matrix_scan_user(void) {
 bool encoder_update_user(uint8_t index, bool clockwise) {
 	if (index == 0) {// Left encoder
 		switch (get_highest_layer(layer_state)) {
-			case _COLEMAK:
+			default:
 				// Tabbing through windows
 				if (clockwise) {
 					if (!is_alt_tab_active) {
@@ -75,6 +75,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 				}
 			break;
 			case _SYMBOLS:
+				// Shift between windows of same application
 				if (clockwise) {
 					tap_code16(S(G(KC_EQUAL)));
 					return true;
@@ -83,12 +84,19 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 					return true;
 				}
 			break;
-			default:
-			break;
 		}
 		return true;
 	} else if (index == 1) {// Right encoder
 	switch (get_highest_layer(layer_state)) {
+		default:
+			if (clockwise) {
+				tap_code16(RCTL(KC_LEFT));
+				return true;
+				} else {
+				tap_code16(RCTL(KC_RIGHT));
+				return true;
+			}
+		break;
 		case _NUMNAV:
 			if (clockwise) {
 				tap_code16(KC_LEFT);
@@ -98,12 +106,13 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 				return true;
 			}
 		break;
-		default:
+		case _SYMBOLS:
+			// Move whole words.
 			if (clockwise) {
-				tap_code16(RCTL(KC_LEFT));
+				tap_code16(A(KC_RGHT));
 				return true;
 				} else {
-				tap_code16(RCTL(KC_RIGHT));
+				tap_code16(A(KC_LEFT));
 				return true;
 			}
 		break;
