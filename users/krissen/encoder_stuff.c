@@ -1,5 +1,6 @@
 /*
-Copyright 2021 id-b3
+ * encoder_stuff.c
+ * Copyright 2023 krissen
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
@@ -43,7 +44,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 					alt_tab_timer = timer_read();
 					tap_code16(KC_F4);
 					return true;
-				} else {
+					} else {
 					if (!is_alt_tab_active) {
 						is_alt_tab_active = true;
 						register_code(KC_LCTL);
@@ -54,61 +55,41 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 				}
 			break;
 			case _SHORTCUT:
-				// Volume Control
-				if (clockwise) {
-					tap_code(KC_VOLU);
-					return true;
-				} else {
-					tap_code(KC_VOLD);
-					return true;
-				}
-			break;
-			case _NUMNAV:
-				// Move whole words. Hold shift to select while moving.
+				// Move whole words.
 				if (clockwise) {
 					tap_code16(A(KC_RGHT));
 					return true;
-				} else {
+					} else {
 					tap_code16(A(KC_LEFT));
 					return true;
 				}
 			break;
-
-			default:
-				// History scrubbing. For Adobe products, hold shift while moving
-				// backward to go forward instead.
+			case _NUMNAV:
+				// Volume Control
 				if (clockwise) {
-					tap_code16(G(KC_Y));
+					tap_code(KC_VOLU);
 					return true;
-				} else {
-					tap_code16(G(KC_Z));
+					} else {
+					tap_code(KC_VOLD);
 					return true;
 				}
+			break;
+			case _SYMBOLS:
+				if (clockwise) {
+					tap_code16(S(G(KC_EQUAL)));
+					return true;
+					} else {
+					tap_code16(S(G(KC_EQUAL)));
+					return true;
+				}
+			break;
+			default:
 			break;
 		}
 		return true;
 	} else if (index == 1) {// Right encoder
 	switch (get_highest_layer(layer_state)) {
 		case _NUMNAV:
-			if (clockwise) {
-				tap_code16(RCTL(KC_LEFT));
-				return true;
-				} else {
-				tap_code16(RCTL(KC_RIGHT));
-				return true;
-			}
-		break;
-			// Ändra lager med encoder
-			// https://www.reddit.com/r/olkb/comments/cmyodl/comment/ew9dg5m/?utm_source=share&utm_medium=web2x&context=3
-			/* if (!clockwise && selected_layer  < 10) { */
-			/* 	selected_layer ++; */
-			/* 	} else if (clockwise && selected_layer  > 0){ */
-			/* 	selected_layer --; */
-			/* } */
-			/* layer_clear(); */
-			/* layer_on(selected_layer); */
-			/* return true; */
-		default:
 			if (clockwise) {
 				tap_code16(KC_LEFT);
 				return true;
@@ -117,8 +98,38 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 				return true;
 			}
 		break;
+		default:
+			if (clockwise) {
+				tap_code16(RCTL(KC_LEFT));
+				return true;
+				} else {
+				tap_code16(RCTL(KC_RIGHT));
+				return true;
+			}
+		break;
 	}
 	}
 	return false;
 }
 #endif
+
+// Ändra lager med encoder
+// https://www.reddit.com/r/olkb/comments/cmyodl/comment/ew9dg5m/?utm_source=share&utm_medium=web2x&context=3
+/* if (!clockwise && selected_layer  < 10) { */
+/* 	selected_layer ++; */
+/* 	} else if (clockwise && selected_layer  > 0){ */
+/* 	selected_layer --; */
+/* } */
+/* layer_clear(); */
+/* layer_on(selected_layer); */
+/* return true; */
+//
+// History scrubbing. For Adobe products, hold shift while moving
+// backward to go forward instead.
+/* if (clockwise) { */
+/* 	tap_code16(G(KC_Y)); */
+/* 	return true; */
+/* 	} else { */
+/* 	tap_code16(G(KC_Z)); */
+/* 	return true; */
+/* } */
