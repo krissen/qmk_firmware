@@ -15,18 +15,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #include "quantum.h"
-#include "process_records.h"
 #ifdef OLED_ENABLE
-#include "oled_stuff.h"
+#	include "oled_stuff.h"
 #endif
 
-/*
-
-    Character Frequency: SPC e t a o i n s r h l d c u m f g p y w ENT b , . v k - " _ ' x ) ( ; 0  j 1 q = 2 : z / * ! ? $ 3 5 > { } 4 9 [ ] 8 6 7 \ + | & < % @ # ^ ` ~
-
-    Punctuation Frequency: , . - " _ ' ) ( ; = : / * ! ? $ > { } [ ] \ + | & < % @ # ^ ` ~
-
-*/
 
 /* Define layer names */
 enum userspace_layers {
