@@ -51,9 +51,6 @@ static void render_status(void) {
 		case _SHORTCUT:
 			oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_SHORTCUT), false);
 			break;
-		/* case _QWERTY: */
-		/* 	oled_write_ln_P(PSTR(OLED_RENDER_LAYOUT_QWERTY), false); */
-		/* 	break; */
 		default:
 			// Or use the write_ln shortcut over adding '\n' to the end of your string
 			oled_write_ln_P(PSTR("Undefined"), false);
