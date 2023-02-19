@@ -19,10 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifdef OLED_ENABLE
 #include "oled_stuff.h"
 #endif
-/* #ifdef TRACKBALL_ENABLE */
-/* 	#include "pimoroni_trackball.h" */
-/* #endif */
-//#define DICE_ROLLER_ENABLE
 
 /*
 

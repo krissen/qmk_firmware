@@ -11,7 +11,3 @@ endif
 ifeq ($(strip $(ENCODER_ENABLE)), yes)
 	SRC += encoder_stuff.c
 endif
-
-ifeq ($(strip $(PIMORONI_TRACKBALL_ENABLE)), yes)
-	SRC += pimoroni_trackball.c
-endif
