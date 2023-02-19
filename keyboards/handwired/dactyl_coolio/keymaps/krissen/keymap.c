@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 	[_NUMNAV] = LAYOUT(
 		KC_ESC,      KC_SLSH,	     KC_7, KC_8, KC_9, KC_KP_MINUS,		KC_VOLU, KC_HOME, KC_UP,   KC_PGUP,  RGUI(KC_X), ASG_V,
-		KC_KP_EQUAL, KC_KP_ASTERISK, KC_4, KC_5, KC_6, KC_KP_PLUS,		KC_MUTE, KC_LEFT, KC_DOWN, KC_RIGHT, RGUI(KC_C), RSFT(KC_2),
+		KC_KP_EQUAL, KC_KP_ASTERISK, KC_4, KC_5, KC_6, KC_KP_PLUS,		KC_MUTE, KC_LEFT, KC_DOWN, KC_RIGHT, RGUI(KC_C), KC_EQUAL,
 		KC_KP_DOT,   KC_0, 	     KC_1, KC_2, KC_3, KC_KP_COMMA,		KC_VOLD, KC_END,  KC_PSCR, KC_PGDN,  RGUI(KC_V), RSFT(KC_EQUAL),
 		_______, _______, TO(_COLEMAK), _______, _______,       	    	_______, _______, TO(_COLEMAK), _______, _______,
 		_______, _______,                                  	    		_______,_______
@@ -154,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		QK_BOOT,   _______, KC_BTN1, KC_MS_U, KC_BTN2, _______, 		_______, _______, _______, _______, _______, QK_BOOT,
 		QK_RBT, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______,		_______, _______, _______, _______, _______, _______,
 		EE_CLR, _______, _______, _______, _______, _______,		_______, _______, _______, _______, _______, TO(_COLEMAK),
-		_______, RGB_SAD, _______, RGB_TOG, RGB_M_B,			RGB_HUD, RGB_HUI, RGB_MOD, RGB_RMOD, _______,
+		KC_SLEP, RGB_SAD, _______, RGB_TOG, RGB_M_B,			RGB_HUD, RGB_HUI, RGB_MOD, RGB_RMOD, _______,
 		RGB_RMOD, RGB_MOD,						RGB_VAD, RGB_VAI 
 	),
 
